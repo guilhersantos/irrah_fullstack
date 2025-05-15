@@ -1,0 +1,318 @@
+/* Estilos para a página de mensagens do administrador */
+.admin-messages {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.admin-messages .messages-header {
+  display: flex;
+  align-items: start;
+  padding: 1rem 2rem;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+}
+
+.admin-messages .back-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 2rem;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.admin-messages .back-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-messages .conversation-info {
+  flex: 1;
+  min-width: 0; /* Permite que o elemento encolha abaixo da sua largura de conteúdo */
+  padding-right: 1rem;
+}
+
+.admin-messages .conversation-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-messages .conversation-info p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Estilos específicos para o AdminMessageInput */
+.admin-message-input .message-priority-selector {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.admin-message-input .message-priority-selector label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.admin-message-input .message-priority-selector input {
+  margin-right: 5px;
+}
+
+.admin-messages .message-input-container {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  box-sizing: border-box;
+}
+
+.admin-message-input .message-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.admin-message-input .message-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: none;
+  min-height: 60px;
+  max-height: 120px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  line-height: 1.4;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.admin-message-input .send-button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+  min-width: 100px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-self: stretch;
+}
+
+.admin-message-input .send-button:hover {
+  background-color: #1a252f;
+}
+
+.admin-message-input .send-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .admin-messages .messages-header {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .admin-messages .back-button {
+    margin-right: 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .admin-messages .conversation-info h2 {
+    font-size: 1.2rem;
+  }
+  
+  .admin-messages .conversation-info p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-messages .messages-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 1rem;
+  }
+  
+  .admin-messages .back-button {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+    width: auto;
+  }
+  
+  .admin-messages .conversation-info {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .admin-messages .message-input-container {
+    padding: 10px;
+  }
+  
+  .admin-message-input .message-input-wrapper {
+    margin-bottom: 10px;
+  }
+  
+  .admin-message-input .message-input-wrapper {
+    gap: 8px;
+  }
+
+  .admin-message-input .message-input {
+    padding: 10px;
+    min-height: 50px;
+  }
+  
+  .admin-message-input .send-button {
+    min-width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 0.9rem;
+  }
+  
+  .admin-message-input .send-text {
+    display: none;
+  }
+  
+  .admin-message-input .send-button::after {
+    content: '\2192'; /* Seta para direita */
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Ajustes para telas muito pequenas */
+  @media (max-width: 360px) {
+    .admin-message-input .message-input-wrapper {
+      gap: 5px;
+    }
+    
+    .admin-message-input .message-input {
+      min-height: 45px;
+      padding: 8px 10px;
+    }
+    
+    .admin-message-input .send-button {
+      min-width: 45px;
+      height: 45px;
+    }
+  }
+}
+
+.admin-messages .messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f5f7fa;
+}
+
+.admin-messages .message-input-container {
+  padding: 1rem;
+  background-color: white;
+  border-top: 1px solid #eee;
+}
+
+.admin-messages .loading-messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.admin-messages .error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.admin-messages .error-container h2 {
+  margin-top: 0;
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.admin-messages .error-container button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s;
+}
+
+.admin-messages .error-container button:hover {
+  background-color: #2980b9;
+}
+
+/* Modificações para as mensagens do administrador */
+.admin-messages .message.sent {
+  background-color: #cff3d836;
+}
+
+.admin-messages .message.sent .message-bubble {
+  background-color: #bee4c7;
+  color: white;
+}
+
+.admin-messages .message.sent .message-time {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .admin-messages .messages-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  
+  .admin-messages .back-button {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}

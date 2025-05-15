@@ -1,0 +1,74 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/home/node
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://user:password@db:5432/myapp
+      - API_PREFIX=api
+      - API_URL=http://localhost:3000/api
+      - HOST=0.0.0.0
+      - PORT=3000
+      - TZ=America/Sao_Paulo
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/home/node
+    environment:
+      NODE_ENV: "development"
+      TZ: "America/Sao_Paulo"
+
+  db:
+    image: postgres:15
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: myapp
+      TZ: "America/Sao_Paulo"
+    volumes:
+      - ./.docker/dbadata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  pgadmin:
+    image: elestio/pgadmin
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 8080
+    user: "$UID:$GID"
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+# Definição da rede compartilhada
+networks:
+  app-network:
+    driver: bridge

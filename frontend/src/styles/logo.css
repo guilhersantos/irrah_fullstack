@@ -1,0 +1,73 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+}
+
+.logo-subtitle {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-top: -5px;
+}
+
+/* Tamanhos */
+.logo-small .logo-text {
+  font-size: 1.8rem;
+}
+
+.logo-small .logo-subtitle {
+  font-size: 0.8rem;
+}
+
+.logo-large .logo-text {
+  font-size: 3.5rem;
+}
+
+.logo-large .logo-subtitle {
+  font-size: 1.2rem;
+}
+
+/* Animação */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  animation: logoFadeIn 0.8s ease-out;
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 2.2rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 2rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 0.8rem;
+  }
+}
