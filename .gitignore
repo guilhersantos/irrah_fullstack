@@ -1,9 +1,10 @@
 # compiled output
-/dist
+**/dist
 /node_modules
+**/.cache
 /build
 **/node_modules/
-**/.chache/
+**/.chache/*
 **/.npm/
 **/.yarn/
 **/.config/
@@ -30,6 +31,7 @@ lerna-debug.log*
 /.idea
 .project
 .classpath
+.bash_history
 .c9/
 *.launch
 .settings/
@@ -43,7 +45,7 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # dotenv environment variable files
-.env
+#.env
 .env.development.local
 .env.test.local
 .env.production.local
@@ -52,7 +54,6 @@ lerna-debug.log*
 # temp directory
 .temp
 .tmp
-
 # Runtime data
 pids
 *.pid

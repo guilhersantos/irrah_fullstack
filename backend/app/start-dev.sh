@@ -9,5 +9,5 @@ fi
 
 # Iniciar o servidor em modo de desenvolvimento
 echo "Iniciando servidor Backend no modo desenvolvimento..."
-yarn start:dev
-#tail -f /dev/null
+#yarn start:dev
+tail -f /dev/null
