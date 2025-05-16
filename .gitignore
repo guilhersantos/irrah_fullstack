@@ -9,8 +9,7 @@
 **/.yarn/
 **/.config/
 # docker
-.docker/*
-
+/.docker
 # Logs
 logs
 *.log
