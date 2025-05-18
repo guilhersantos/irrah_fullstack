@@ -8,10 +8,12 @@ USER node
 
 WORKDIR /home/node/
 
+COPY --chown=node:node . /home/node/
+
 # Ajustar permissões e criar diretório de trabalho
-COPY --chown=node:node start-dev.sh /home/node/start-dev.sh
+#COPY --chown=node:node start-dev.sh /home/node/start-dev.sh
 
 RUN chmod +x /home/node/start-dev.sh
 
 # Comando para desenvolvimento
-CMD ["/home/node/start-dev.sh"]
+CMD ["sh", "/home/node/start-dev.sh"]
