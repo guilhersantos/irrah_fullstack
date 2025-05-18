@@ -10,4 +10,4 @@ fi
 # Iniciar o servidor em modo de desenvolvimento
 echo "Iniciando Frontend no modo desenvolvimento"
 #tail -f /dev/null
-yarn dev
+yarn start:dev
